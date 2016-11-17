@@ -7,7 +7,7 @@ application = Flask(__name__)
 
 
 def weather_data(latitude, longitude):
-    cache = FileSystemCache('./')
+    cache = FileSystemCache('./cache')
     cache_key = '{}.{}'.format(latitude, longitude)
     data = cache.get(cache_key)
     if data is None:
