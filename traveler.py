@@ -19,7 +19,7 @@ def weather_data(latitude, longitude):
 
         currently = fio.currently
         data = currently
-        cache.set(cache_key, data, timeout=3600)
+        cache.set(cache_key, data, timeout=300)  # 5 minutes
     return data
 
 
