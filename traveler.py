@@ -3,7 +3,7 @@ from flask import render_template
 from werkzeug.contrib.cache import FileSystemCache
 from forecastiopy import *
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 
 def weather_data(latitude, longitude):
@@ -23,7 +23,7 @@ def weather_data(latitude, longitude):
     return data
 
 
-@app.route('/')
+@application.route('/')
 def index():
 
     prague = [50.0880400, 14.4207600]
@@ -38,4 +38,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run()
+    application.run()
