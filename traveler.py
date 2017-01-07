@@ -28,8 +28,9 @@ def index():
 
     prague = [50.0880400, 14.4207600]
     colombo = [6.9319400, 79.8477800]
+    dublin = [53.350140,  -6.266155]
 
-    data = weather_data(*colombo)
+    data = weather_data(*dublin)
 
     temperature = data['temperature']
     summary = data['summary']
