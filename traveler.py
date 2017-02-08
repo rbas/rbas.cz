@@ -29,12 +29,18 @@ def index():
     prague = [50.0880400, 14.4207600]
     colombo = [6.9319400, 79.8477800]
     dublin = [53.350140,  -6.266155]
+    barcelona = [41.390205,  2.154007]
 
-    data = weather_data(*dublin)
+    state = 'Spain'
+    city = 'Barcelona'
+    started_at = '2017/04/23'
+
+    data = weather_data(*barcelona)
 
     temperature = data['temperature']
     summary = data['summary']
-    context = {'temperature': temperature, 'summary': summary}
+    context = {'temperature': temperature, 'summary': summary,
+               'state': state, 'city': city, 'started_at': started_at}
     return render_template('index.html', **context)
 
 
