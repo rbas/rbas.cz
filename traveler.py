@@ -30,12 +30,15 @@ def index():
     colombo = [6.9319400, 79.8477800]
     dublin = [53.350140,  -6.266155]
     barcelona = [41.390205,  2.154007]
+    amsterdam = [52.3740300,  4.8896900]
 
-    state = 'Spain'
-    city = 'Barcelona'
-    started_at = '2017/04/23'
+    current = amsterdam
 
-    data = weather_data(*barcelona)
+    state = 'Netherlands'
+    city = 'Amsterdam'
+    started_at = '2017/06/01'
+
+    data = weather_data(*current)
 
     temperature = data['temperature']
     summary = data['summary']
