@@ -31,12 +31,13 @@ def index():
     dublin = [53.350140,  -6.266155]
     barcelona = [41.390205,  2.154007]
     amsterdam = [52.3740300,  4.8896900]
+    reykjavik = [64.133333, -21.933333]
 
-    current = amsterdam
+    current = reykjavik
 
-    state = 'Netherlands'
-    city = 'Amsterdam'
-    started_at = '2017/06/01'
+    state = 'Iceland'
+    city = 'Reykjavík'
+    started_at = '2017/09/20'
 
     data = weather_data(*current)
 
