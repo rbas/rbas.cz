@@ -25,19 +25,20 @@ def weather_data(latitude, longitude):
 
 @application.route('/')
 def index():
-
+    # Latitude, Longitude
     prague = [50.0880400, 14.4207600]
     colombo = [6.9319400, 79.8477800]
     dublin = [53.350140,  -6.266155]
     barcelona = [41.390205,  2.154007]
     amsterdam = [52.3740300,  4.8896900]
     reykjavik = [64.133333, -21.933333]
+    kualalumpur = [3.139003, 101.686855]
 
-    current = reykjavik
+    current = kualalumpur
 
-    state = 'Iceland'
-    city = 'Reykjavík'
-    started_at = '2017/09/20'
+    state = 'Malaysia'
+    city = 'Kuala Lumpur'
+    started_at = '2017/12/13'
 
     data = weather_data(*current)
 
