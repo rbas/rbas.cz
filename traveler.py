@@ -33,12 +33,13 @@ def index():
     amsterdam = [52.3740300,  4.8896900]
     reykjavik = [64.133333, -21.933333]
     kualalumpur = [3.139003, 101.686855]
+    malta = [35.917973, 14.409943]
 
-    current = kualalumpur
+    current = malta
 
-    state = 'Malaysia'
-    city = 'Kuala Lumpur'
-    started_at = '2017/12/13'
+    state = 'Malta'
+    city = 'Birgu'
+    started_at = '2018/02/28'
 
     data = weather_data(*current)
 
