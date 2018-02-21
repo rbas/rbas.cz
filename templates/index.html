@@ -40,6 +40,22 @@
                 </div>
             </div>
         </div>
+        <div class="container">
+            <div class="pure-g-r">
+                <div class="pure-u-1">
+                    <h2>My previous trips</h2>
+                </div>
+
+                {% for trip in past_trips %}
+                    <div class="pure-u-1-1 l-box">
+                        {{ trip.date }}<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{ trip.state }}</strong> - {{ trip.city }}
+                    </div>
+                {% endfor %}
+
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 <script type="text/template" id="main-example-template">

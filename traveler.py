@@ -26,7 +26,7 @@ def weather_data(latitude, longitude):
 
 @application.route('/')
 def index():
-    past_trips = (
+    past_trips = [
         {'latitude': 6.9319400, 'longitude': 79.8477800,
          'state': 'Srí Lanka', 'city': 'Colombo',
          'date': datetime.date(2016, 12, 16)},
@@ -42,7 +42,9 @@ def index():
         {'latitude': 3.139003, 'longitude': 101.686855,
          'state': 'Malaysia', 'city': 'Kualalumpur',
          'date': datetime.date(2017, 12, 13)},
-    )
+    ]
+    previous_trips = sorted(past_trips, key=lambda x: x['date'], reverse=True)
+
     current_trip = {'latitude': 35.917973, 'longitude': 14.409943,
                     'state': 'Malta', 'city': 'Birgu',
                     'date': datetime.date(2018, 2, 28)}
@@ -56,7 +58,8 @@ def index():
     temperature = data['temperature']
     summary = data['summary']
     context = {'temperature': temperature, 'summary': summary,
-               'state': state, 'city': city, 'started_at': started_at}
+               'state': state, 'city': city, 'started_at': started_at,
+               'past_trips': previous_trips}
     return render_template('index.html', **context)
 
 
