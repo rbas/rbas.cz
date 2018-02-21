@@ -60,18 +60,5 @@ def index():
     return render_template('index.html', **context)
 
 
-@application.route('/xoxo/')
-def xoxo():
-
-    coordinates = [10.762622, 106.660172]
-
-    data = weather_data(*coordinates)
-
-    temperature = data['temperature']
-    summary = data['summary']
-    context = {'temperature': temperature, 'summary': summary}
-    return render_template('xoxo.html', **context)
-
-
 if __name__ == '__main__':
     application.run()
