@@ -1,3 +1,4 @@
+import datetime
 from flask import Flask
 from flask import render_template
 from werkzeug.contrib.cache import FileSystemCache
@@ -25,23 +26,32 @@ def weather_data(latitude, longitude):
 
 @application.route('/')
 def index():
-    # Latitude, Longitude
-    prague = [50.0880400, 14.4207600]
-    colombo = [6.9319400, 79.8477800]
-    dublin = [53.350140,  -6.266155]
-    barcelona = [41.390205,  2.154007]
-    amsterdam = [52.3740300,  4.8896900]
-    reykjavik = [64.133333, -21.933333]
-    kualalumpur = [3.139003, 101.686855]
-    malta = [35.917973, 14.409943]
+    past_trips = (
+        {'latitude': 6.9319400, 'longitude': 79.8477800,
+         'state': 'Srí Lanka', 'city': 'Colombo',
+         'date': datetime.date(2016, 12, 16)},
+        {'latitude': 41.390205, 'longitude': 2.154007,
+         'state': 'Spain', 'city': 'Barcelona',
+         'date': datetime.date(2017, 4, 23)},
+        {'latitude': 52.3740300, 'longitude': 4.8896900,
+         'state': 'Netherlands', 'city': 'Amsterdam',
+         'date': datetime.date(2017, 6, 1)},
+        {'latitude': 64.133333, 'longitude': -21.933333,
+         'state': 'Iceland', 'city': 'Reykjavik',
+         'date': datetime.date(2017, 9, 20)},
+        {'latitude': 3.139003, 'longitude': 101.686855,
+         'state': 'Malaysia', 'city': 'Kualalumpur',
+         'date': datetime.date(2017, 12, 13)},
+    )
+    current_trip = {'latitude': 35.917973, 'longitude': 14.409943,
+                    'state': 'Malta', 'city': 'Birgu',
+                    'date': datetime.date(2018, 2, 28)}
 
-    current = malta
+    state = current_trip['state']
+    city = current_trip['city']
+    started_at = current_trip['date'].strftime('%Y/%m/%d')
 
-    state = 'Malta'
-    city = 'Birgu'
-    started_at = '2018/02/28'
-
-    data = weather_data(*current)
+    data = weather_data(current_trip['latitude'], current_trip['longitude'])
 
     temperature = data['temperature']
     summary = data['summary']
